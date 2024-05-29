@@ -71,6 +71,11 @@ export const fetchAnggota = async () => {
     return response.data.data;
 }
 
+export const postPeminjaman = async (peminjamandata) => {
+  const response = await Api.post("/api/peminjaman", peminjamandata);
+  return response.data.data;
+}
+
 export const fetchPeminjaman = async () => {
     const response = await Api.get("/api/peminjaman");
     return response.data.data;

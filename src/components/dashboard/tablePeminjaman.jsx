@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import {
   useTable,
   usePagination,
@@ -6,8 +6,11 @@ import {
   useGlobalFilter,
 } from "react-table";
 import "tailwindcss/tailwind.css";
+import AddPeminjamanModal from "./addPeminjamanModal";
 
-export default function TablePeminjaman({ data, onEdit, onDelete }) {
+export default function TablePeminjaman({ data, onEdit, onDelete, onAdd }) {
+  const [addModalIsOpen, setAddModalIsOpen] = useState(false);
+
   const columns = useMemo(
     () => [
       {
@@ -65,6 +68,11 @@ export default function TablePeminjaman({ data, onEdit, onDelete }) {
     [onEdit, onDelete]
   );
 
+  const handleSaveAdd = (newPeminjaman) => {
+    onAdd(newPeminjaman);
+    setAddModalIsOpen(false);
+  };
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -97,13 +105,19 @@ export default function TablePeminjaman({ data, onEdit, onDelete }) {
     <div className="p-7 mx-10 rounded-lg border-2 border-black">
       <div className="flex justify-between">
         <h1 className="text-2xl">List Data Peminjaman</h1>
-        <div>
+        <div className="flex space-x-4 items-center">
           <input
             value={globalFilter || ""}
             onChange={(e) => setGlobalFilter(e.target.value)}
             placeholder="Search"
             className="mb-4 p-2 border rounded w-full"
           />
+          <button
+            onClick={() => setAddModalIsOpen(true)}
+            className="bg-[#127E01] px-3 py-2 w-72 text-white rounded-lg"
+          >
+            Tambah Peminjaman
+          </button>
         </div>
       </div>
       <hr className="border-black mb-10" />
@@ -220,41 +234,11 @@ export default function TablePeminjaman({ data, onEdit, onDelete }) {
           ))}
         </select>
       </div>
+      <AddPeminjamanModal
+        isOpen={addModalIsOpen}
+        onRequestClose={() => setAddModalIsOpen(false)}
+        onSave={handleSaveAdd}
+      />
     </div>
   );
 }
-
-// Contoh penggunaan komponen TablePeminjaman
-// const data = [
-//   {
-//     id: 1,
-//     id_buku: { judul: "Daun yang Jatuh Tak Pernah Membenci Angin" },
-//     id_anggota: { name: "John Doe" },
-//     tgl_pinjam: "2023-01-01",
-//     tgl_kembali: "2023-01-10",
-//     status: "Dikembalikan",
-//     denda: 0,
-//   },
-//   {
-//     id: 2,
-//     id_buku: { judul: "Kamus Inggris - Indonesia" },
-//     id_anggota: { name: "Jane Smith" },
-//     tgl_pinjam: "2023-01-05",
-//     tgl_kembali: "2023-01-15",
-//     status: "Dikembalikan",
-//     denda: 5000,
-//   },
-//   // Add more rows as needed
-// ];
-
-// const onEdit = (id) => {
-//   // Handle edit action for the book with the given id
-//   console.log(`Editing book with id ${id}`);
-// };
-
-// const onDelete = (id) => {
-//   // Handle delete action for the book with the given id
-//   console.log(`Deleting book with id ${id}`);
-// };
-
-// <TablePeminjaman data={data} onEdit={onEdit} onDelete={onDelete} />;

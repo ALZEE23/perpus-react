@@ -2,6 +2,14 @@ import Navbar from "../components/Index/Navbar"
 import Footer from "../components/Index/Footer"
 import image from "../assets/home.svg"
 import time from "../assets/Time Icon.svg"
+import alert from "../assets/Alert Icon.svg"
+import search from "../assets/Search Icon.svg"
+import elipse from "../assets/Time Icon (1).svg"
+
+import img1 from "../assets/IMG-20240529-WA0002.jpg"
+import img2 from "../assets/IMG-20240529-WA0003.jpg"
+import img3 from "../assets/IMG-20240529-WA0004.jpg"
+
 
 export default function index(){
     return (
@@ -25,7 +33,7 @@ export default function index(){
           </div>
         </section>
 
-        <section id="about" className="w-full h-screen px-20 bg-[#F3F3F3]">
+        <section id="about" className="w-full h-[110vh] px-20 bg-[#F3F3F3]">
           <div className="grid grid-cols-2">
             <div className="block px-2 space-y-5 my-56">
               <h1 className="text-5xl font-bold">
@@ -53,30 +61,33 @@ export default function index(){
                 </h2>
               </div>
               <div className="bg-white px-5 py-10 space-y-3 rounded-2xl mx-4 shadow-2xl justify-between">
-                <img src={time} alt="" />
-                <h1 className="text-xl font-semibold">Akses Tanpa Batas</h1>
+                <img src={search} alt="" />
+                <h1 className="text-xl font-semibold">Pencarian Efisien</h1>
                 <h2 className="text-sm">
-                  SiPerpus memberikan akses tanpa batas ke koleksi buku. Siswa,
-                  guru, dan staf dapat dengan mudah mengakses perpustakaan dari
-                  mana saja dan kapan saja
+                  Fasilitas pencarian yang canggih memungkinkan pengguna untuk
+                  dengan cepat menemukan buku atau sumber daya yang mereka
+                  butuhkan.
                 </h2>
               </div>
               <div className="bg-white px-5 py-10 space-y-3 rounded-2xl mx-4 shadow-2xl">
-                <img src={time} alt="" />
-                <h1 className="text-xl font-semibold">Akses Tanpa Batas</h1>
+                <img src={elipse} alt="" />
+                <h1 className="text-xl font-semibold">
+                  Pengelolaan Anggota dan Profil Pengguna
+                </h1>
                 <h2 className="text-sm">
-                  SiPerpus memberikan akses tanpa batas ke koleksi buku. Siswa,
-                  guru, dan staf dapat dengan mudah mengakses perpustakaan dari
-                  mana saja dan kapan saja
+                  Pengelolaan Informasi seperti detail siswa, guru, dan staf,
+                  serta riwayat peminjaman, dapat dikelola melalui profil
+                  pengguna masing-masing.
                 </h2>
               </div>
               <div className="bg-white px-5 py-10 space-y-3 rounded-2xl mx-4 shadow-2xl">
-                <img src={time} alt="" />
-                <h1 className="text-xl font-semibold">Akses Tanpa Batas</h1>
+                <img src={alert} alt="" />
+                <h1 className="text-xl font-semibold">
+                  Notifikasi dan Pengingat
+                </h1>
                 <h2 className="text-sm">
-                  SiPerpus memberikan akses tanpa batas ke koleksi buku. Siswa,
-                  guru, dan staf dapat dengan mudah mengakses perpustakaan dari
-                  mana saja dan kapan saja
+                  Pengguna dapat menerima notifikasi dan pengingat tentang
+                  pengembalian buku atau tanggal jatuh tempo peminjaman
                 </h2>
               </div>
             </div>
@@ -100,22 +111,22 @@ export default function index(){
             </h2>
             <div className="grid grid-cols-3 grid-rows-2 px-20 py-10 gap-y-6">
               <div className="bg-gray-200 w-96 h-64">
-                <img src="" alt="" />
+                <img src={img1} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="bg-gray-200 w-96 h-64">
-                <img src="" alt="" />
+                <img src={img2} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="bg-gray-200 w-96 h-64">
-                <img src="" alt="" />
+                <img src={img3} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="bg-gray-200 w-96 h-64">
-                <img src="" alt="" />
+                <img src={img1} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="bg-gray-200 w-96 h-64">
-                <img src="" alt="" />
+                <img src={img2} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="bg-gray-200 w-96 h-64">
-                <img src="" alt="" />
+                <img src={img3} alt="" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -139,28 +150,45 @@ export default function index(){
             <div className="grid grid-cols-2 px-10">
               <div className="px-12 block space-y-6">
                 <div>
-                  <label htmlFor="" className="mx-10 text-lg bg-white absolute px-3">Nama Lengkap</label>
+                  <label
+                    htmlFor=""
+                    className="mx-10 text-lg bg-white absolute px-3"
+                  >
+                    Nama Lengkap
+                  </label>
                   <input
                     type="text"
                     className="border w-full px-2 h-16 my-4 rounded-xl text-xl outline-none border-gray-500"
                   />
                 </div>
                 <div>
-                  <label htmlFor="" className="mx-10 text-lg bg-white absolute px-3">Email</label>
+                  <label
+                    htmlFor=""
+                    className="mx-10 text-lg bg-white absolute px-3"
+                  >
+                    Email
+                  </label>
                   <input
                     type="text"
                     className="border w-full px-2 h-16 my-4 rounded-xl text-xl outline-none border-gray-500"
                   />
                 </div>
                 <div>
-                  <label htmlFor="" className="mx-10 text-lg bg-white absolute px-3">Email</label>
+                  <label
+                    htmlFor=""
+                    className="mx-10 text-lg bg-white absolute px-3"
+                  >
+                    Email
+                  </label>
                   <textarea
                     type="text"
                     className="border w-full px-2 py-3 h-32 my-4 rounded-xl text-xl outline-none border-gray-500"
                   />
                 </div>
                 <div>
-                  <button className="w-full h-12 bg-blue-500 text-white text-xl rounded-xl">Kirim</button>
+                  <button className="w-full h-12 bg-blue-500 text-white text-xl rounded-xl">
+                    Kirim
+                  </button>
                 </div>
               </div>
               <div>
